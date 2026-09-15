@@ -1,7 +1,7 @@
 import UserSearch from "./UserSearch";
 import UserList from "./UserList";
 import { cookies } from "next/headers";
-import { getAllUsers } from "@/lib/api/users";
+import { getAllUsers } from "@/app/api/users/route";
 
 export default async function UsersPage() {
     const cookieStore = await cookies();
