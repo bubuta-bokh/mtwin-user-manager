@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     const login = form.get('login');
     const password = form.get('password');
 
-    console.log('Username:', login, 'Password:', password);
+    //console.log('Username:', login, 'Password:', password);
     const res = await fetch(`${process.env.NEXT_PUBLIC_USERSERVICE_URL}/api/User/login`, {
         method: 'POST',
         body: JSON.stringify({ Username: login, Password: password }),

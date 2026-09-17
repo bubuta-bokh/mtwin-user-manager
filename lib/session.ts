@@ -33,7 +33,7 @@ export async function getSessionUser(): Promise<SessionUser | null>
     if(!payload?.userId) {
         return null;
     }
-console.log('!@!@!@payload is', payload);
+//console.log('!@!@!@payload is', payload);
     return {
         userId: payload.userId,
         fullUserName: payload.fullUserName,

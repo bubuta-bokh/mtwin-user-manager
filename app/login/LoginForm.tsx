@@ -22,7 +22,7 @@ export default function LoginForm() {
 
         const data = await res.json();
         if (data.requiresPasswordChange) {
-            console.log("Password change required");
+            //console.log("Password change required");
             window.location.href = "/change-password";
             return;
         }

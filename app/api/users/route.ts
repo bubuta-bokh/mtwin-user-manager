@@ -1,6 +1,6 @@
 export async function getAllUsers(jwt: string) {
     const base = process.env.NEXT_PUBLIC_USERSERVICE_URL;
-    const res = await fetch(`${base}/api/User`, {
+    const res = await fetch(`${base}/api/User/users`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
