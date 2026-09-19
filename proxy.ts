@@ -37,7 +37,7 @@ async function refreshTokens(refreshToken: string) {
     return data;
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const jwt = request.cookies.get("jwt")?.value;
     const refreshToken = request.cookies.get("refreshToken")?.value;
 
@@ -66,9 +66,9 @@ export async function middleware(request: NextRequest) {
     const response = NextResponse.next({ request });
 
     response.cookies.set("jwt", refreshed.token, { httpOnly: true, secure: false, path: "/" });
-    response.cookies.set("refreshToken", refreshed.token, { httpOnly: true, secure: false, path: "/" });
+    response.cookies.set("refreshToken", refreshed.refreshToken, { httpOnly: true, secure: false, path: "/" });
 
     return response;
 }
 
-export const config = { matcher: ["users/:path*"], }
+export const config = { matcher: ["/users/:path*"], }
